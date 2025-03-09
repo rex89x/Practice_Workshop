@@ -1,0 +1,7 @@
+requests
+azure-cognitiveservices-vision-computervision
+msrest
+openai
+fastapi
+uvicorn
+python-multipart
