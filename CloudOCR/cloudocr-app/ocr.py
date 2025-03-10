@@ -5,8 +5,11 @@ import os
 import time
 
 # 讀取 Azure OCR API Key 和 Endpoint
-AZURE_OCR_ENDPOINT = os.getenv("AZURE_OCR_ENDPOINT")  # 例如 "https://your-region.api.cognitive.microsoft.com/"
-AZURE_OCR_API_KEY = os.getenv("AZURE_OCR_API_KEY")  # 你的 API Key
+AZURE_OCR_ENDPOINT = os.environ.get("AZURE_OCR_ENDPOINT")
+AZURE_OCR_API_KEY = os.environ.get("AZURE_OCR_API_KEY")
+
+if not AZURE_OCR_ENDPOINT or not AZURE_OCR_API_KEY:
+    raise ValueError("❌ 環境變數 AZURE_OCR_ENDPOINT 或 AZURE_OCR_API_KEY 未設置！請確認你的 API 設定。")
 
 # 初始化 Azure OCR 客戶端
 computervision_client = ComputerVisionClient(AZURE_OCR_ENDPOINT, CognitiveServicesCredentials(AZURE_OCR_API_KEY))
@@ -39,10 +42,10 @@ def recognize_text(image_path):
         return "⚠️ OCR 辨識失敗，請檢查圖片是否清晰"
 
 # 測試 OCR
-if __name__ == "__main__":
-    image_path = "test.png"  # 你可以更換成其他影像
-    if not os.path.exists(image_path):
-        print(f"❌ 找不到圖片檔案: {image_path}")
-    else:
-        result = recognize_text(image_path)
-        print("\n🔍 OCR 辨識結果:\n", result)
+#if __name__ == "__main__":
+    #image_path = "test.png"  # 你可以更換成其他影像
+    #if not os.path.exists(image_path):
+        #print(f"❌ 找不到圖片檔案: {image_path}")
+    #else:
+        #result = recognize_text(image_path)
+        #print("\n🔍 OCR 辨識結果:\n", result)
