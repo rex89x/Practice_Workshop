@@ -5,6 +5,10 @@ import os
 
 from ocr import recognize_text
 from summary import summarize_text
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = FastAPI()
 
