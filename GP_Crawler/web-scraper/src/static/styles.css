@@ -1,0 +1,234 @@
+/* 主題色定義 */
+:root {
+    --primary-color: #6a1b9a;
+    --primary-light: #9c4dcc;
+    --primary-dark: #38006b;
+    --accent-color: #ba68c8;
+    --text-on-primary: #ffffff;
+    --text-color: #333333;
+    --background-color: #f5f0fa;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+/* 控制面板樣式 */
+.control-panel {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+.select-source {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: white;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: border-color 0.3s;
+}
+
+.select-source:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 27, 154, 0.2);
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn i {
+    font-size: 18px;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    flex: 2;
+}
+
+.btn.primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(106, 27, 154, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    flex: 1;
+}
+
+.btn.secondary:hover {
+    background-color: rgba(106, 27, 154, 0.05);
+}
+
+.btn.download {
+    background-color: var(--accent-color);
+    color: var(--text-on-primary);
+    margin: 20px auto 0;
+    padding: 15px 30px;
+}
+
+.btn.download:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(106, 27, 154, 0.3);
+}
+
+/* 載入畫面 */
+.loading-container {
+    text-align: center;
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loader {
+    border: 5px solid rgba(106, 27, 154, 0.2);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    font-size: 18px;
+    color: var(--primary-dark);
+}
+
+/* 結果容器 */
+.result-container {
+    text-align: center;
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+    margin-bottom: 25px;
+}
+
+.success-message i {
+    font-size: 60px;
+    color: var(--success-color);
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* 隱藏元素 */
+.hidden {
+    display: none;
+}
+
+/* 頁尾 */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: var(--primary-dark);
+    font-size: 14px;
+}
+
+/* 新增頁尾樣式 */
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.benq-logo {
+    height: 30px;
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+    }
+    
+    .btn.primary, .btn.secondary {
+        flex: 1;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
